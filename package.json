@@ -1,0 +1,16 @@
+{
+  "name": "instax-cli",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node --experimental-specifier-resolution=node index",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "he",
+  "license": "ISC",
+  "dependencies": {
+    "node-fetch": "^3.2.4"
+  }
+}
