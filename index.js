@@ -1,6 +1,6 @@
 import { input, close } from './util/readline';
 import { checkCredentials, saveCredentials } from './common/credentials';
-import { checkFollowing } from './common/following';
+import { updateFollowing } from './common/following';
 
 async function exit() {
     await close();
@@ -42,7 +42,7 @@ if(!checkCredentials()) {
 
 switch(one) {
     case '1':
-        await checkFollowing();
+        await updateFollowing();
         break;
     case '2':
         break;
