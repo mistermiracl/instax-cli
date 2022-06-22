@@ -3,17 +3,6 @@ import { fileURLToPath } from 'url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-// const dataFolder = '.data';
-// const dataPath = path.join(__dirname, dataFolder);
-// const configFile = 'config.json';
-
-// var config = {};
-// try {
-//     config = fs.readFileSync(path.join(dataPath, configFile));
-// } catch {
-//     console.log('No config file, will create one when modified');   
-// }
-
 const dataPath = path.join(__dirname, '.data');
 
 const config = Object.freeze((function () {
