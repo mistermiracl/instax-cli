@@ -19,3 +19,7 @@ export function getFollowingUsers() {
         return a;
     }, {}));
 }
+
+export default {
+    getFollowingUsers
+};
