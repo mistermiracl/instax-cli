@@ -5,6 +5,11 @@ const rl = createInterface({
   output: process.stdout
 });
 
+rl.on('SIGINT', async () => {
+    await close();
+    process.exit(0);
+});
+
 export function input(message = '') {
     return new Promise(resolve => {
         rl.question(message, ans => {

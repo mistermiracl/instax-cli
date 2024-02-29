@@ -2,8 +2,7 @@ import path from 'path';
 import fs from 'fs';
 
 import config from '../config';
-import { fileDate } from '../util';
-// TODO: export a default object with all the methods
+import { datetimerepr } from '../util';
 import followingService from '../service/instagram/following';
 
 function getFollowed(followedFilename, full = false) {
@@ -25,7 +24,7 @@ function getLocalFollowing() {
 function renameLocalFollowing(date) {
     const newFilename = path.join(
         config.dataPath,
-        `${config.followingFilenameExtless}_${fileDate(date)}${config.followingFilenameExt}`
+        `${config.followingFilenameExtless}_${datetimerepr(date)}${config.followingFilenameExt}`
     );
     fs.renameSync(config.followingFile, newFilename);
 }
@@ -105,7 +104,7 @@ function comparisonReport(lostUsers, gainedUsers, usernameChanges) {
 
 // NOTE: i could just yield the filename and call next 5 times, so dumb
 function* getFollowedFilenames() {
-    // TODO: hardcoded extension
+    // TODO: hardcoded extension, it should also start with 'following'
     const followedFilesRegex = /.{1,}_\d{1,}[.]json/; // followedFilesRegex.test.bind(followedFilesRegex); would have to do that to not use a lambda
     const files = fs.readdirSync(config.dataPath);// .filter(f => followedFilesRegex.test(f));
     // TODO: add time to following files to prevent same name in the first day
